@@ -1,0 +1,196 @@
+@mixin typography($font-name, $font-longname) {
+
+  /*
+        Переконайтеся,
+        що ви створили каталог / fonts на тому ж рівні,
+        що ваш каталог / css. щоб переконатися,
+        що наведені нижче URL-адреси працюють правильно. Веб-шрифти включатимуть короткі ім'я для посилання в оголошеннях сімейства шрифтів та довге ім'я,
+        необхідне для посилання на URL. Міксін потрібно буде викликати з оголошенням @include. відразу нижче,
+        щоб правильно завантажити шрифти.
+    */
+  @font-face {
+    font-family: $font-name;
+    src: url("../fonts/"+ $font-longname + ".eot");
+    src: local('☺'), url("../fonts/"+ $font-longname + ".woff") format('woff'),
+      url("../fonts/"+ $font-longname + ".ttf") format('truetype'),
+      url("../fonts/"+ $font-longname + ".svg#webfontjVVPrHqE") format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+}
+
+// font
+
+@mixin font-open-sans($size: false, $color: false, $weight: false, $lh: false) {
+  font-family: 'Open Sans', sans-serif;
+
+  @if $size {
+    font-size: $size;
+  }
+
+  @if $color {
+    color: $color;
+  }
+
+  @if $weight {
+    font-weight: $weight;
+  }
+
+  @if $lh {
+    line-height: $lh;
+  }
+}
+
+
+
+// not-last-child
+// .thing {
+//   @include not-last-child('p') {
+//     color: red;
+//   }
+// }
+
+@mixin not-last-child($selector) {
+  & #{$selector}:not(:last-child) {
+    @content;
+  }
+}
+
+
+// pseudo-element ::before, ::after
+
+@mixin pseudo-element($content: '', $display: block, $pos: absolute) {
+  content: $content;
+  display: $display;
+  position: $pos;
+}
+
+// psevdo on the link
+
+@mixin link ($link, $visit, $hover, $active) {
+  a {
+    color: $link;
+
+    &:visited {
+      color: $visit;
+    }
+
+    &:hover {
+      color: $hover;
+    }
+
+    &:active {
+      color: $active;
+    }
+  }
+}
+
+// placeholder
+
+@mixin placeholder($color, $size, $weight) {
+  &::-webkit-input-placeholder {
+    color: $color;
+    font-size: $size;
+    font-weight: $weight;
+  }
+
+  &:-moz-placeholder {
+    color: $color;
+    font-size: $size;
+    font-weight: $weight;
+  }
+
+  &::-moz-placeholder {
+    color: $color;
+    font-size: $size;
+    font-weight: $weight;
+  }
+
+  &:-ms-input-placeholder {
+    color: $color;
+    font-size: $size;
+    font-weight: $weight;
+  }
+}
+
+// media
+
+$breakpoints: ("phone": 480px, "tablet": 768px, "desktop": 1200px, );
+
+@mixin mq($width, $type: min) {
+  @if map_has_key($breakpoints, $width) {
+    $width: map_get($breakpoints, $width);
+
+    @if $type==max {
+      $width: $width - 1px;
+    }
+
+    @media only screen and (#{$type}-width: $width) {
+      @content;
+    }
+  }
+}
+
+
+
+// border-radius  
+// @include combined-radius($topLeft, $topRight, $bottomRight, $bottomLeft)
+
+@mixin border-radius($topLeft, $topRight, $bottomRight, $bottomLeft) {
+  -webkit-border-radius: $topLeft $topRight $bottomRight $bottomLeft;
+  -moz-border-radius: $topLeft $topRight $bottomRight $bottomLeft;
+  -ms-border-radius: $topLeft $topRight $bottomRight $bottomLeft;
+  -o-border-radius: $topLeft $topRight $bottomRight $bottomLeft;
+  border-radius: $topLeft $topRight $bottomRight $bottomLeft;
+}
+
+@mixin background-clip {
+  background-clip: padding-box;
+}
+
+@mixin combined-radius($topLeft, $topRight, $bottomRight, $bottomLeft) {
+  @include background-clip;
+  @include border-radius($topLeft, $topRight, $bottomRight, $bottomLeft);
+}
+
+// box-shadow
+
+@mixin box-shadow($horizOffset, $vertOffset, $blur, $color) {
+  /* 
+        Розмиття $blur – необов'язковий параметр, але допомагає пом'якшити тінь. Викличте міксин,
+        застосувавши значення пікселів для $ HorizOffset,
+        $vertOffset та $blur,
+        а також шістнадцяткове значення для $color. У Правило border-collapse включено для правильного рендерингу тіней в IE9.
+    */
+  -webkit-box-shadow: $horizOffset $vertOffset $blur $color;
+  -moz-box-shadow: $horizOffset $vertOffset $blur $color;
+  -ms-box-shadow: $horizOffset $vertOffset $blur $color;
+  -o-box-shadow: $horizOffset $vertOffset $blur $color;
+  box-shadow: $horizOffset $vertOffset $blur $color;
+  border-collapse: separate;
+}
+
+@mixin box-shadow-inset($horizOffset, $vertOffset, $blur, $color) {
+  /*
+        Ті самі параметри,
+        що й @mixin box-shadow,
+        але створює внутрішню тінь для втиснутих або заглиблених ефектів.
+    */
+  -webkit-box-shadow: $horizOffset $vertOffset $blur $color inset;
+  -moz-box-shadow: $horizOffset $vertOffset $blur $color inset;
+  -ms-box-shadow: $horizOffset $vertOffset $blur $color inset;
+  -o-box-shadow: $horizOffset $vertOffset $blur $color inset;
+  box-shadow: $horizOffset $vertOffset $blur $color inset;
+}
+
+// background-gradient
+
+@mixin background-gradient($direction, $first-color, $second-color) {
+  background: $first-color;
+  background-image: -webkit-linear-gradient($direction, $first-color, $second-color);
+  background-image: -moz-linear-gradient($direction, $first-color, $second-color);
+  background-image: -ms-linear-gradient($direction, $first-color, $second-color);
+  background-image: -o-linear-gradient($direction, $first-color, $second-color);
+  background-image: linear-gradient($direction, $first-color, $second-color);
+  @include background-clip;
+}

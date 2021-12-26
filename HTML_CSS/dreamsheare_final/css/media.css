@@ -1,0 +1,91 @@
+@media screen and (max-width:980px) {
+  .dreamshare__content {
+    flex-wrap: wrap;
+  }
+
+  .dreamshare__item {
+    width: 47%;
+  }
+
+  .dreamshare__item {
+    margin-right: 0px;
+  }
+
+  .partners__item,
+  .dreamshare__item {
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (max-width:768px) {
+
+  .wrapp {
+    grid-template-rows: 1fr;
+  }
+
+  .nav {
+    grid-column: 1 / 12;
+  }
+
+  .header__content {
+    grid-column: 2 / 12;
+    grid-row: 4 / 8;
+    margin-bottom: 150px;
+  }
+
+  .partners__content {
+    flex-wrap: wrap;
+  }
+
+  .partners__item {
+    width: 48%;
+  }
+
+  .partners__item:not(:last-child) {
+    margin-right: 10px;
+  }
+
+}
+
+@media screen and (max-width:499px) {
+  .container {
+    max-width: 320px;
+  }
+
+  .header__title {
+    font-size: 30px;
+    line-height: 37px;
+
+  }
+
+  .nav__logo {
+    display: none;
+  }
+
+  .nav__logo--display {
+    display: block;
+    margin: 30px 0;
+  }
+
+  .nav__button,
+  .header__content,
+  .btn.header__btn {
+    grid-column: 1 / 12;
+    text-align: center;
+  }
+
+  .header__subtitle {
+    font-weight: 300;
+    font-size: 18px;
+  }
+
+  .header__content {
+    margin-bottom: 50px;
+  }
+
+  .partners__item,
+  .dreamshare__item {
+    width: 100%;
+  }
+
+}

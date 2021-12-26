@@ -1,0 +1,64 @@
+$boxSizingBox: border-box;
+
+// font-family
+$font-family-primary:'Montserrat',
+sans-serif;
+$font-family-second:'Roboto',
+sans-serif;
+
+// font-size
+$fz:16px;
+$fz-logo: 20px / $fz * 1rem;
+$fz-primary: 14px / $fz * 1rem;
+$fz-H1: 52px / $fz * 1rem;
+$fz-title-section: 26px / $fz * 1rem;
+$fz-title-card: 24px / $fz * 1rem;
+$fz-span: 22px / $fz * 1rem;
+$fz-text: 18px / $fz * 1rem;
+
+
+// line-height
+// $lh-text:14px / $fz-primary;
+
+// font
+// $font-primary: #{$fz-primary}/#{$lh-text};
+
+// color
+$font-color-primary:#444444;
+$font-color-second:#999999;
+$font-color-title:#ffffff;
+$font-color-subtitle: #F7F3F2;
+$font-colorTextCard:#E3E3E3;
+$font-colorTextCard2: #666666;
+
+// background-color
+$bg-color-white:#ffffff;
+$bg-color-red:#FF4E50;
+$bg-color-yellow:#FFA710;
+$bg-color-blue:#667DF3;
+$bg-color-lightBlue:#19D4CA;
+$bg-color-second:#999999;
+
+
+
+// Icons on the after  @extend %img-after;
+
+%img-after {
+  position: absolute;
+  width: 37px;
+  height: 37px;
+  border-radius: 50%;
+  border: 5px solid $bg-color-white;
+  top: 80px;
+  left: 85px;
+  display: block;
+}
+
+// flex
+
+%flex-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
