@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .big{
+            width: 200px;
+            height: 500px;
+            background: linear-gradient(to top, lightgreen, lightcoral);
+        }
+        .modal-left, .modal-right{
+            width: 300px;
+            height: 100px;
+            background-color: bisque;
+            margin: 10px;
+            position: relative;
+        }
+        .modal-right{
+            position: absolute;
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    
+    <button id="open">open</button>
+    <button id="close">close</button>
+    <div class="big"></div>
+    <button id="up">up</button>
+    <button id="down">down</button>
+    <div class="modal-left"></div>
+    <div class="modal-right"></div>
+    <div class="big"></div>
+    <button id="goUp">goUp</button>
+    <div class="big"></div>
+    <div class="big"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
