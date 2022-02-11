@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .top-block, .main-block, .bottom-block{
+            border: 1px solid #000;
+            padding: 10px;
+        }
+
+        .container{
+            width: 70%;
+            min-height: 100px;
+            border: 1px solid #000;  
+            padding: 10px;
+            margin: 10px auto; 
+            display: flex;
+            flex-wrap: wrap;  
+            justify-content: space-around;
+        }
+
+        .block{
+            width: 30%;
+            height: 100px;
+            border: 1px solid #000;
+            text-align: center;
+            font-size: 30px;
+            margin: 10px 0;
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+        }
+        h1{
+            border: 1px solid #000;
+            height: 50px;
+            background-color: bisque;
+            transition: all 0.7s;
+        }
+    </style>
+</head>
+<body>
+    
+    <button onclick="someClick()">click</button>
+    <button onclick="someClick()" id="click1">click 1</button>
+    <button id="push">push</button>
+    <hr>
+    <!-- <div onclick="divFunc()" style="border: 1px solid #000; padding: 10px;">
+        <p onclick="pFunc()"  style="border: 1px solid #000;">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel, asperiores nisi! Quisquam asperiores commodi <b onclick="bFunc()"  style="border: 1px solid #000;">quaerat porro doloremque</b> amet nesciunt obcaecati minima voluptates tenetur aperiam, illum minus, repellat numquam laboriosam exercitationem!
+        </p>
+    </div> -->
+    <!-- <div class="top-block">
+        top-block
+        <div class="main-block">
+            main-block
+            <div class="bottom-block">bottom-block</div>
+        </div>
+    </div>
+    <hr> -->
+
+    <!-- <div class="container">
+        <div class="block" onclick="addColor()">block 1</div>
+        <div class="block" onclick="addColor()">block 2</div>
+        <div class="block" onclick="addColor()">block 3</div>
+        <div class="block" onclick="addColor()">block 4</div>
+        <div class="block" onclick="addColor()">block 5</div>
+        <div class="block" onclick="addColor()">block 6</div>
+        <div class="block" onclick="addColor()">block 7</div>
+        <div class="block" onclick="addColor()">block 8</div>
+        <div class="block" onclick="addColor()">block 9</div>
+    </div> -->
+
+    <!-- <div class="container" onclick="addColor()">
+        <div class="block">block 1</div>
+        <div class="block">block 2</div>
+        <div class="block">block 3</div>
+        <div class="block">block 4</div>
+        <div class="block">block 5</div>
+        <div class="block">block 6</div>
+        <div class="block">block 7</div>
+        <div class="block">block 8</div>
+        <div class="block">block 9</div>
+    </div> -->
+
+    <div class="box">box</div>
+    <h1>Down me</h1>
+
+    <script src="script.js"></script>
+</body>
+</html>

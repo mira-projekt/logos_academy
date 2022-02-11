@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .ball{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            box-shadow: 0 4px 4px black;
+            border-radius: 50%;
+            position: absolute;
+            top: 200px;
+            left: 400px;
+        }
+
+        .box{
+            width: 100px;
+            height: 200px;
+            border: 1px solid #000;
+            margin: 20px;
+        }
+
+        .bg-red{
+            background-color: red;
+        }
+
+        .shadow{
+            box-shadow: 0 0 10px 0 black;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- <div class="ball"></div> -->
+
+    <div>
+        <button class="add">add</button>
+        <button class="remove">remove</button>
+        <button class="toggle">toggle</button>
+    </div>
+    <div class="box"></div>
+    <hr>
+    <button onclick="change()" data-name="but">change</button>
+    <a href="https://www.lgs.lviv.ua" id="link" class="some1 some2" data-name="link">lgs</a>
+    <hr>
+    <button class="check">check</button>
+    
+    <script src="script.js"></script>
+</body>
+</html>

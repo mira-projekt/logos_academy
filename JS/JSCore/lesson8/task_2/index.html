@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson13.FormsEvent, робота з формою</title>
+  <link rel="stylesheet" href="../style.css">  
+</head>
+
+<body>    
+
+  <div class="form_sign">
+    <span>Create your account</span>
+
+    <form name="signUp">
+      <label for="firstName">First Name</label>
+      <input type="text" name="firstName" id="first_name" placeholder="First Name">
+
+      <label for="secondName">Second Name</label>
+      <input type="text" name="secondName" id="second_name" placeholder="Second Name">
+
+      <label for="email">Email adress</label>
+      <input type="text" name="email" id="email" placeholder="Email adress">
+
+
+      <input type="radio" name="radioGender" id="man" value="man">
+      <label for="man">man</label>
+
+      <input type="radio" name="radioGender" id="woman" value="woman">
+      <label for="woman">woman</label><br>
+
+      <label for="position">Position</label>
+      <select name="position" id="position">
+        <option selected="selected">Choose...</option>
+        <option value="Frontend">Frontend</option>
+        <option value="Backend">Backend</option>
+        <option value="QC/QA">QC/QA</option>
+      </select>
+
+      <input type="checkbox" name="agreement" id="agreement">
+      <label for="agreement">I agree all statements in Terms of service</label>
+
+      <input type="button" name="signUpButton" value="Sign Up" class="signUp_button" disabled>
+    </form>
+
+  </div>
+
+  <div class="registrated hidden">
+    <div class="registrated_header_image">
+    </div>
+
+    <div class="registrated_profile_data">
+      <h3 class="profile_name"></h3>
+      <p class="profile_mail"></p>
+      <p class="profile_position"></p>
+    </div>
+    <div class="signOut_button">Sign Out</div>
+
+    <div class="registrated_footer">
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

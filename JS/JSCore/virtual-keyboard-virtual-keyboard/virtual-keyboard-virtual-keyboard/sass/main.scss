@@ -1,0 +1,664 @@
+@charset 'utf-8';
+@import "../sass/base/normalize";
+@import "../sass/abstracts/mixins";
+@import "../sass/abstracts/variables";
+
+:root {
+  font-size: 10px;
+  font-family: Roboto;
+}
+
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+a {
+  outline: none;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+textarea {
+  resize: none;
+  outline: none;
+  border: none;
+}
+
+main {
+  background: $bgGrad;
+  min-height: 100vh;
+  position: relative;
+
+  .container {
+    max-width: 120rem;
+    padding: 0 1rem;
+    margin: auto;
+
+    .copyright {
+      color: hsla(0, 0%, 100%, 0.5);
+      position: fixed;
+      bottom: 1rem;
+      left: 2%;
+      z-index: 1;
+      max-width: 52%;
+      text-align: left;
+
+      & a {
+        color: hsla(0, 0%, 100%, 0.5);
+      }
+    }
+
+    .about {
+      color: hsla(0, 0%, 100%, 0.644);
+      position: fixed;
+      z-index: 1;
+      text-align: right;
+      font-size: 1.2rem;
+      right: 2%;
+      bottom: 1rem;
+      max-width: 45%;
+    }
+
+  }
+
+
+  .screen-wrapper {
+    min-width: 10rem;
+    max-width: 107.3rem;
+    padding: 6rem 1rem 0;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+
+    @media (max-height: 900px) {
+      padding: 2rem 0 0;
+    }
+  }
+
+  .screen {
+    @include fontstyle();
+    padding: 2.4rem 4rem 4rem 2.8rem;
+    z-index: 10;
+    width: 80%;
+    min-width: 10rem;
+    max-width: 107.3rem;
+    height: 30rem;
+    max-height: 30rem;
+    background: rgba(255, 255, 255, .22);
+    box-shadow: 0px 4px 30px 2px rgba(255, 255, 255, 0.2);
+    border-radius: 1rem;
+    color: #fff;
+    transition: all .4s;
+    cursor: auto;
+
+    &::placeholder {
+      color: #fff;
+      font-size: 1.6rem;
+      opacity: 0.8;
+    }
+
+    &::-webkit-scrollbar {
+      width: 1.4rem;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: rgba(255, 255, 255, 0.212);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba(51, 255, 153, 0.89);
+      border-radius: 5rem;
+    }
+
+    @media (max-height: 900px) {
+      padding: 1rem;
+      max-height: 25rem;
+      width: 100%;
+    }
+
+    @media (max-height: 740px) {
+      max-height: 20rem;
+    }
+
+    @media (max-height: 687px) {
+      max-height: 15rem;
+    }
+  }
+
+  .desk-wrapper {
+    padding: 0;
+    padding-bottom: 6rem;
+    position: relative;
+    overflow: hidden;
+
+    @media (max-height: 900px) {
+      padding-bottom: 1rem;
+    }
+  }
+
+  .keyboard {
+    perspective-origin: 50% 50%;
+    perspective: 70rem;
+    margin: 4rem auto;
+    padding-top: 1.4rem;
+    background: url('../assets/svg/keyboard_skeleton.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 37.8rem;
+    min-width: 10rem;
+    max-width: 107.3rem;
+    position: relative;
+    user-select: none;
+    bottom: 0;
+    transition: bottom 0.4s;
+    z-index: 10;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+
+    @media (max-width: 1140px) {
+      perspective-origin: 0% 0%;
+      perspective: 0rem;
+      background: rgba(255, 255, 255, 0.589);
+      border-radius: 1.5rem
+    }
+
+    @media (max-height: 687px) {
+      margin-top: 1.5rem;
+    }
+
+    @media (max-height: 612px) {
+      &:nth-child(n) {
+        height: 100%;
+        padding-bottom: 1rem;
+      }
+    }
+
+    &__hidden {
+      bottom: -50rem;
+    }
+  }
+
+  .key-row {
+    display: flex;
+    height: 6rem;
+    justify-content: space-between;
+    margin: 0 auto .8rem auto;
+
+
+    &:first-child {
+      width: 95%;
+    }
+
+    &:nth-child(2) {
+      width: 96%;
+    }
+
+    &:nth-child(3) {
+      width: 97%;
+    }
+
+    &:nth-child(4) {
+      width: 97.5%;
+    }
+
+    &:last-child {
+      width: 98.2%;
+    }
+
+    @media (max-width: 1140px) {
+      transform: rotateX(0deg);	
+      &:nth-child(n) {
+        width: 99%;
+      }
+    }
+
+    @media (max-width: 906px) {
+      justify-content: space-between;
+
+      &:nth-child(n) {
+        width: 99%;
+      }
+    }
+
+    @media (max-height: 612px) {
+      &:nth-child(n) {
+        height: 5.5rem;
+      }
+    }
+
+    @media (max-height: 540px) {
+      &:nth-child(n) {
+        height: 5rem;
+      }
+    }
+  }
+}
+
+.key-special {
+  @include key-special();
+}
+
+.key-double {
+  @include key-double();
+  background: radial-gradient(50% 50% at 50% 50%, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), #F2F2F2;
+}
+
+.key-letter {
+  @include key-letter();
+  background: radial-gradient(50% 50% at 50% 50%, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), #F2F2F2;
+}
+
+.key {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: .4rem .4rem .6rem;
+  background: $keyborder;
+  height: 6rem;
+  cursor: pointer;
+  filter: drop-shadow(0px .6rem .4rem rgba(0, 0, 0, 0.25));
+
+  border-radius: .6rem;
+
+  & .key-special {
+    background: radial-gradient(50% 50% at 50% 50%, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), #E2E2E2;
+  }
+
+  & .key-arrow {
+    @include key-arrow();
+    background: radial-gradient(50% 50% at 50% 50%, #9948FF 0%, rgba(153, 72, 255, 0) 100%), #7916F7;
+  }
+
+  &__escape {
+    background: radial-gradient(50% 50% at 50% 50%, #FF7563 0%, #F16552 100%), #F16552 !important;
+
+    @media (max-width: 1140px) {
+      width: 5rem;
+    }
+  }
+
+  &__backspace {
+    @include key-special($width: 14.5rem, $color: $color);
+
+  }
+
+  &__backspace-free {
+
+    &:after {
+      content: url(../assets/svg/backspace.svg);
+      position: absolute;
+    }
+
+    @media (max-width: 1140px) {
+      &:after {
+        content: url(../assets/svg/backspace-small.svg);
+        position: absolute;
+      }
+    }
+    @media (max-width: 599px) {
+      min-width: 100%;
+      &:after {
+        content: url(../assets/svg/backspace-xs.svg);
+        position: absolute;
+      }
+    }
+  }
+
+  &__backspace-pressed {
+    &:after {
+      content: url(../assets/svg/backspace_active.svg);
+      position: absolute;
+    }
+
+    @media (max-width: 1140px) {
+      &:after {
+        content: url(../assets/svg/backspace-small_active.svg);
+        position: absolute;
+      }
+    }
+    @media (max-width: 599px) {
+      min-width: 100%;
+      &:after {
+        content: url(../assets/svg/backspace-xs_active.svg);
+        position: absolute;
+      }
+    }
+  }
+
+  &__tab {
+    @include key-special($width: 8.9rem, $color: $color);
+  }
+
+  &__backslash {
+    @include key-double($width: 11.4rem, $color: $color);
+    background: radial-gradient(50% 50% at 50% 50%, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), #E2E2E2;
+  }
+
+  &__caps {
+    @include key-special($width: 11.4rem, $color: $color);
+  }
+
+  &__enter {
+    @include key-special($width: 16.9rem, $color: $color);
+    // background: radial-gradient(50% 50% at 50% 50%, #F4E282 40.62%, rgba(255, 214, 0, 0.6) 100%), #FFEF9C !important; // yellow-key
+    background: radial-gradient(50% 50% at 50% 50%, #82f49b 40.62%, rgba(0, 255, 85, 0.541) 100%), #79e490 !important; //green-key
+  }
+
+  &__enter-pressed {
+    color: #913dfd;
+  }
+
+  &__lshift {
+    @include key-special($width: 14.1rem, $color: $color);
+  }
+
+  &__rshift {
+    @include key-special($width: 11.8rem, $color: $color);
+  }
+
+  &__lctrl,
+  &__rctrl,
+  &__tilda,
+  &__mute,
+  &__speak {
+    @include key-special($width: 7.2rem, $color: $color);
+  }
+
+  &__mute {
+    &:after {
+      content: url(../assets/svg/mute.svg);
+      position: absolute;
+    }
+  }
+
+  &__speak {
+    &:after {
+      content: url(../assets/svg/speak.svg);
+      position: absolute;
+    }
+  }
+
+  &__lang {
+    @include key-double($width: 7.2rem, $color: $color);
+    background: radial-gradient(50% 50% at 50% 50%, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), #E2E2E2;
+  }
+
+  &__space {
+    @include key-special($width: 40.9rem, $color: $color);
+
+    &:hover {
+      transform: rotateZ(.15deg) !important;
+    }
+
+    @media (max-width: 1140px) {
+      width: 25rem;
+    }
+  }
+
+  &__space-free {
+    &:after {
+      content: "";
+      position: absolute;
+      width: 8.4rem;
+      height: 0.2rem;
+      background: $color;
+    }
+  }
+
+  &__space-pressed {
+    &:after {
+      content: "";
+      position: absolute;
+      width: 8.4rem;
+      height: 0.2rem;
+      background: #6F00FF;
+    }
+  }
+
+  &__arrtop {
+    position: relative;
+
+    &:after {
+      content: "";
+      background-image: url('../assets/svg/top.svg');
+      background-size: 100% 100%;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: .2rem;
+
+      @media (max-width: 650px) {
+        width: 80%;
+        height: 80%;
+        top: .7rem;
+      }
+    }
+  }
+
+  &__arrleft {
+    position: relative;
+
+    &:after {
+      content: "";
+      background-image: url('../assets/svg/left.svg');
+      background-size: 100% 100%;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: .2rem;
+
+      @media (max-width: 650px) {
+        width: 80%;
+        height: 80%;
+        top: .7rem;
+      }
+    }
+  }
+
+  &__arrbot {
+    position: relative;
+
+    &:after {
+      content: "";
+      background-image: url('../assets/svg/bot.svg');
+      background-size: 100% 100%;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: .2rem;
+
+      @media (max-width: 650px) {
+        width: 80%;
+        height: 80%;
+        top: .7rem;
+      }
+    }
+  }
+
+  &__arrright {
+    position: relative;
+
+    &:after {
+      content: "";
+      background-image: url('../assets/svg/right.svg');
+      background-size: 100% 100%;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: .2rem;
+
+      @media (max-width: 650px) {
+        width: 80%;
+        height: 80%;
+        top: .7rem;
+      }
+    }
+  }
+
+  &:hover {
+    transition: all .2s ease;
+    filter: drop-shadow(0px 4px 5px rgba(0, 0, 0, 0.0));
+    background: $keyborder-dark;
+  }
+
+  &__active-grad {
+    filter: drop-shadow(0px 4px 5px rgba(0, 0, 0, 0.0));
+
+    &:before {
+      content: "";
+      @include active-key ();
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      opacity: .8;
+      z-index: -1;
+      filter: blur(15px);
+    }
+  }
+
+}
+
+.key__pressed {
+  mix-blend-mode: multiply;
+
+  &:hover {
+    filter: drop-shadow(0px 4px 5px rgba(255, 255, 255, 0));
+    transform: rotateZ(0);
+  }
+}
+
+// desk background — bottom dark gradient
+.desk {
+  background: linear-gradient(180deg, rgba(0, 26, 255, 0) 0%, #2E1C60 100%);
+  opacity: 0.8;
+  position: absolute;
+  width: 100%;
+  min-height: 50%;
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+// to change top arrow order on adaptation 
+#beforeArr {
+  @media (max-width: 1140px) {
+    order: 1;
+  }
+
+  @media (max-width: 906px) {
+    width: 7rem;
+  }
+
+  @media (max-width: 740px) {
+    width: 8%;
+  }
+}
+
+// micro-adaptive settings
+.rshift-wrapper {
+  @media (max-width: 1140px) {
+    order: 1;
+  }
+
+  @media (max-width: 989px) {
+    display: none;
+  }
+}
+
+.rctrl-wrapper {
+  @media (max-width: 989px) {
+    display: none;
+  }
+}
+
+.letter-wrapper,
+.num-wrapper {
+  @media (max-width: 906px) {
+    width: 7%;
+  }
+
+  @media (max-width: 695px) {
+    width: 6%;
+  }
+}
+
+.space-wrapper {
+  @media (max-width: 906px) {
+    width: 22%;
+  }
+}
+
+.tab-wrapper,
+.caps-wrapper,
+.lshift-wrapper,
+.lctrl-wrapper {
+  @media (max-width: 906px) {
+    max-width: 6rem;
+  }
+
+}
+.backspace-wrapper {
+  @media (max-width: 989px) {
+    max-width: 6rem;
+  }
+  @media (max-width: 570px) {
+    max-width: 4rem;
+  }
+}
+
+
+
+.arrow-wrapper {
+  @media (max-width: 620px) {
+    width: 8%;
+  }
+}
+
+#arrow-top {
+  margin: 0 2.2rem;
+
+  @media (max-width: 1140px) {
+    margin: 0 1.5rem;
+    margin: 0;
+  }
+
+  @media (max-width: 1079px) {
+    margin: 0 -.3% 0 0;
+  }
+
+  @media (max-width: 906px) {
+    margin: 0 1.4% 0 0;
+  }
+
+  @media (max-width: 860px) {
+    margin: 0 1.2% 0 0;
+  }
+
+  @media (max-width: 740px) {
+    margin: 0 2.1% 0 0;
+  }
+
+  @media (max-width: 620px) {
+    margin: 0;
+  }
+}
+
+.hoverEffect {
+  transition: all .2s ease;
+  filter: drop-shadow(0px 4px 5px rgba(0, 0, 0, 0.0));
+  background: $keyborder-dark;
+}
+
+.highlighted {
+  color: #00ff77cc;
+  color: #6f00ff;
+}
+
+.key-tilda-wrapper {
+  max-width: 4.5rem;
+}
